@@ -21,7 +21,7 @@ showPic(winPtr, winRect, '1.jpg');
 showPic(winPtr, winRect, '1.png', 1);
 ```
 
-## function [rt, Ans] = getKey(time)
+## [rt, Ans] = getKey(time)
 
 用于获取键盘按键和反应时。
 
@@ -40,7 +40,7 @@ showPic(winPtr, winRect, '1.png', 1);
 [~, ansB] = getKey(5000); // 只获取答案，不获取反应时
 ```
 
-## function [defAnswer] = initSubject()
+## [defAnswer] = initSubject()
 
 用于录入被试信息。具体来说，会录入编号、性别和年龄。
 
@@ -56,3 +56,11 @@ id = defAnswer{1}; // 字符串
 gender = defAnswer{2}; // 字符串，1代表男性，2代表女性
 age = defAnswer{3}; // 字符串
 ```
+
+## outIt(matrix, subjectid)
+
+输出`matrix`数组到该被试对应的xlsx文件和总的xlsx文件。
+
+- 生成的xlsx文件的名字为`subjectid_0_ans.xlsx`，如果该文件已存在，则会尝试`subjectid_1_ans.xlsx`、`subjectid_2_ans.xlsx`……以此类推。不会发生文件覆盖。
+- 会在`total.xlsx`文件中保存当前的`matrix`，即能实现将所有被试的结果整合在一个xlsx文件中。
+- `matrix`数组有第一行标题行作为数据的名称（如`subject age gender rt ans`）和没有时对应的代码不一样，需要修改（已注释）。
