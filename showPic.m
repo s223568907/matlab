@@ -4,7 +4,7 @@ function showPic(winPtr, winRect, picName, time)
         time = -1;
     end
 
-    space = KbName('space'); // 可以修改成其他按键
+    space = KbName('space'); % 可以修改成其他按键
 
     intro = imread(picName);
     size = size(intro);
