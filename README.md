@@ -39,3 +39,20 @@ showPic(winPtr, winRect, '1.png', 1);
 [rt, ansA] = getKey(2000);
 [~, ansB] = getKey(5000); // 只获取答案，不获取反应时
 ```
+
+## function [defAnswer] = initSubject()
+
+用于录入被试信息。具体来说，会录入编号、性别和年龄。
+
+调用了`check.m`文件，因而需要一起下载才能正常使用。
+
+- defAnswer：长度为3的元胞数组，依次为编号、性别（`1`代表男性，`2`代表女性）和年龄，类型均为字符串。
+
+使用案例
+
+```matlab
+defAnswer = initSubject();
+id = defAnswer{1}; // 字符串
+gender = defAnswer{2}; // 字符串，1代表男性，2代表女性
+age = defAnswer{3}; // 字符串
+```
